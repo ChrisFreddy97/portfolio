@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VELO Freddy Christiano · Portfolio ingénieur</title>
+    <!-- Google Fonts & Font Awesome pour un look moderne -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f4f7fb;
+            color: #1e1e2f;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        /* carte principale style "glass" */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 2.5rem;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.2), 0 2px 8px 0 rgba(0,0,0,0.05);
+            padding: 2.5rem 2.2rem;
+            border: 1px solid rgba(255,255,255,0.5);
+            margin-bottom: 2.5rem;
+            transition: all 0.2s ease;
+        }
+
+        h1, h2, h3 {
+            font-weight: 600;
+            letter-spacing: -0.02em;
+        }
+
+        h1 {
+            font-size: 3.2rem;
+            line-height: 1.1;
+            background: linear-gradient(145deg, #0b1e33, #2d4b6e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.3rem;
+        }
+
+        .subhead {
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: #3e4e62;
+            border-left: 5px solid #3b82f6;
+            padding-left: 1rem;
+            margin-top: 0.2rem;
+        }
+
+        .pill-tag {
+            display: inline-block;
+            background: #eef2f8;
+            color: #1f2a41;
+            border-radius: 100px;
+            padding: 0.3rem 1rem;
+            font-size: 0.85rem;
+            font-weight: 500;
+            box-shadow: inset 0 1px 2px #ffffff, 0 2px 4px rgba(0,0,0,0.02);
+        }
+
+        .grid-2, .grid-3 {
+            display: grid;
+            gap: 1.8rem;
+        }
+
+        .grid-2 {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .grid-3 {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        /* photo + entête */
+        .profile-row {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 1rem;
+        }
+        .profile-photo {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid white;
+            box-shadow: 0 10px 20px -5px rgba(0,40,80,0.25);
+            background: #d9e2ef; /* fallback si image manquante */
+        }
+        .name-title {
+            flex: 1;
+        }
+        /* contact chips */
+        .contact-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem 2rem;
+            margin: 1.8rem 0 1.2rem;
+            align-items: center;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+            background: white;
+            padding: 0.4rem 1rem 0.4rem 0.8rem;
+            border-radius: 60px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+            border: 1px solid #e9eef3;
+        }
+        .contact-item a {
+            color: inherit;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+        .contact-item a:hover {
+            color: #2563eb;
+        }
+
+        .contact-item i {
+            color: #3b82f6;
+            font-size: 1rem;
+            width: 1.8rem;
+            height: 1.8rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: #eef5ff;
+            border-radius: 50%;
+        }
+
+        .badge-age {
+            background: #2b3b4e;
+            color: white;
+            border: none;
+        }
+        .badge-age i { background: #526e8a; color: white; }
+
+        /* expérience et cartes */
+        .exp-item {
+            padding: 1.2rem 0;
+            border-bottom: 1px dashed #dae2ec;
+        }
+        .exp-item:last-child { border-bottom: none; }
+
+        .exp-header {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            justify-content: space-between;
+            margin-bottom: 0.3rem;
+        }
+        .exp-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #0b2a41;
+        }
+        .exp-company {
+            font-weight: 600;
+            color: #2563eb;
+        }
+        .exp-date {
+            font-size: 0.85rem;
+            background: #e6edf5;
+            padding: 0.2rem 0.8rem;
+            border-radius: 100px;
+            color: #1e3a5f;
+        }
+        .exp-desc {
+            font-size: 0.95rem;
+            color: #2c3e56;
+            margin-left: 0.2rem;
+            list-style-type: none;
+        }
+        .exp-desc li {
+            margin: 0.4rem 0;
+            display: flex;
+            gap: 0.6rem;
+            align-items: flex-start;
+        }
+        .exp-desc li i {
+            color: #2563eb;
+            font-size: 0.75rem;
+            margin-top: 0.3rem;
+            width: 1rem;
+        }
+
+        .skill-block {
+            background: white;
+            border-radius: 1.5rem;
+            padding: 1.4rem 1.2rem;
+            box-shadow: 0 6px 14px rgba(0,27,55,0.05);
+            transition: transform 0.1s ease;
+            border: 1px solid rgba(255,255,255,0.8);
+        }
+        .skill-block:hover { transform: translateY(-3px); }
+        .skill-icon {
+            font-size: 1.8rem;
+            color: #2563eb;
+            margin-bottom: 0.5rem;
+        }
+        .skill-block h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+        }
+        .skill-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem 0.5rem;
+        }
+        .skill-chip {
+            background: #eef2f8;
+            padding: 0.25rem 0.9rem;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: #172c3c;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 1.8rem;
+            padding: 1.6rem;
+            box-shadow: 0 10px 20px -10px rgba(0,32,64,0.1);
+            border: 1px solid #eef4fa;
+        }
+        .project-card h4 {
+            font-size: 1.25rem;
+            margin-bottom: 0.25rem;
+            color: #0b2a41;
+        }
+        .project-card .year {
+            color: #5f6f84;
+            font-size: 0.8rem;
+            font-weight: 400;
+            margin-left: 0.5rem;
+        }
+        .project-desc {
+            color: #2f4057;
+            margin: 0.8rem 0;
+            font-size: 0.92rem;
+        }
+
+        .lang-interet {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            background: #dce9fa30;
+            border-radius: 2rem;
+            padding: 1rem 1.8rem;
+            margin-top: 1.5rem;
+            border: 1px solid white;
+        }
+
+        footer {
+            text-align: center;
+            opacity: 0.7;
+            font-size: 0.9rem;
+            margin-top: 2rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 750px) {
+            .grid-2, .grid-3 { grid-template-columns: 1fr; }
+            h1 { font-size: 2.5rem; }
+            .glass-card { padding: 1.8rem; }
+            .contact-bar { gap: 0.8rem; }
+            .profile-row { gap: 1rem; }
+            .profile-photo { width: 80px; height: 80px; }
+        }
+        hr {
+            border: none;
+            border-top: 2px solid rgba(59,130,246,0.2);
+            margin: 1.5rem 0;
+        }
+        .profile-text {
+            font-size: 1rem;
+            max-width: 85%;
+            background: rgba(255,255,255,0.5);
+            border-radius: 1.5rem;
+            padding: 1.2rem 1.5rem;
+        }
+        /* liens réseaux bien visibles */
+        .social-links {
+            display: flex;
+            gap: 0.8rem;
+        }
+        .social-links a {
+            color: #1e2b3a;
+            background: white;
+            border-radius: 40px;
+            padding: 0.3rem 1rem 0.3rem 0.7rem;
+            border: 1px solid #dbe4f0;
+            transition: 0.1s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+        .social-links a:hover {
+            background: #e5f0ff;
+            border-color: #3b82f6;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- bloc en-tête / identité avec PHOTO et liens mis à jour -->
+    <div class="glass-card">
+        <div class="profile-row">
+            <!-- photo locale PHOTO.png -->
+            <img src="PHOTO.png" alt="VELO Freddy Christiano" class="profile-photo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <div class="name-title">
+                <h1>VELO Freddy Christiano</h1>
+                <div class="subhead">Ingénieur en Électronique & Informatique industriel</div>
+            </div>
+            <span class="pill-tag"><i class="far fa-smile" style="margin-right: 0.3rem;"></i> Développement · Hardware · Fullstack</span>
+        </div>
+
+        <!-- contact + nouveaux liens github / linkedin -->
+        <div class="contact-bar">
+            <span class="contact-item"><i class="fas fa-envelope"></i> velofreddy.christiano@gmail.com</span>
+            <span class="contact-item"><i class="fas fa-phone-alt"></i> +261 32 97 329 93</span>
+            <span class="contact-item"><i class="fas fa-map-marker-alt"></i> Ambanja, Madagascar</span>
+            <!-- LinkedIn (lien mis à jour) -->
+            <span class="contact-item">
+                <a href="https://www.linkedin.com/in/freddy-christiano-velo-64913a20a/" target="_blank" rel="noopener">
+                    <i class="fab fa-linkedin-in"></i> LinkedIn
+                </a>
+            </span>
+            <!-- GitHub (nouveau lien) -->
+            <span class="contact-item">
+                <a href="https://github.com/ChrisFreddy97" target="_blank" rel="noopener">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+            </span>
+            <span class="contact-item badge-age"><i class="fas fa-user"></i> 29 ans · Célibataire</span>
+        </div>
+
+        <!-- profil court -->
+        <div class="profile-text">
+            <i class="fas fa-quote-left" style="color: #3b82f6; opacity: 0.6; margin-right: 0.3rem;"></i>
+            Ingénieur de développement projet avec +2 ans d’expérience, spécialisé optimisation de produits électroniques et applications. Passionné d’innovation technologique, je combine hardware & software pour des solutions robustes et évolutives.
+        </div>
+    </div>
+
+    <!-- EXPÉRIENCES & FORMATION (2 colonnes) -->
+    <div class="grid-2" style="margin-bottom: 2rem;">
+        <!-- colonne gauche : exp pro -->
+        <div class="glass-card" style="padding: 2rem 1.8rem;">
+            <h2 style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem;"><i class="fas fa-briefcase" style="color: #3b82f6;"></i> Expériences professionnelles</h2>
+            <div class="exp-item">
+                <div class="exp-header">
+                    <span class="exp-title">Ingénieur de Développement de Projet</span>
+                    <span class="exp-date">Oct 2024 – présent</span>
+                </div>
+                <div class="exp-company">NANOE Madagascar SARL · Ambanja</div>
+            </div>
+            <div class="exp-item">
+                <div class="exp-header">
+                    <span class="exp-title">Support Technique</span>
+                    <span class="exp-date">Juil 2024 – Oct 2024</span>
+                </div>
+                <div class="exp-company">EXTRACTOO · Antananarivo</div>
+                <ul class="exp-desc">
+                    <li><i class="fas fa-chevron-right"></i> Assistance technique spécialisée, résolution hardware/software</li>
+                </ul>
+            </div>
+            <div class="exp-item">
+                <div class="exp-header">
+                    <span class="exp-title">Développeur Web Full Stack</span>
+                    <span class="exp-date">Jan 2023 – Juin 2023</span>
+                </div>
+                <div class="exp-company">AGIR POUR DIEGO · Antsiranana</div>
+                <ul class="exp-desc">
+                    <li><i class="fas fa-chevron-right"></i> Interface dynamique Angular</li>
+                    <li><i class="fas fa-chevron-right"></i> API RESTful Spring Boot</li>
+                    <li><i class="fas fa-chevron-right"></i> Modélisation/optimisation MySQL</li>
+                </ul>
+            </div>
+            <div class="exp-item">
+                <div class="exp-header">
+                    <span class="exp-title">Opérateur de Saisie</span>
+                    <span class="exp-date">Jan 2022 – Déc 2022</span>
+                </div>
+                <div class="exp-company">ACTIVIA CONTACT · Antsiranana</div>
+                <ul class="exp-desc"><li><i class="fas fa-chevron-right"></i> Gestion et mise à jour bases de données clients</li></ul>
+            </div>
+            <div class="exp-item">
+                <div class="exp-header">
+                    <span class="exp-title">Stage de Maîtrise (Électronique)</span>
+                    <span class="exp-date">Jan 2020 – Mar 2020</span>
+                </div>
+                <div class="exp-company">SECREN SA · Antsiranana</div>
+                <ul class="exp-desc"><li><i class="fas fa-chevron-right"></i> Études en électronique industrielle et automatisation</li></ul>
+            </div>
+            <div class="exp-item">
+                <div class="exp-header">
+                    <span class="exp-title">Stage Ouvrier</span>
+                    <span class="exp-date">Fév 2017 – Mar 2017</span>
+                </div>
+                <div class="exp-company">SECREN SA · Antsiranana</div>
+                <ul class="exp-desc"><li><i class="fas fa-chevron-right"></i> Installations électriques, rebobimage moteurs</li></ul>
+            </div>
+        </div>
+
+        <!-- colonne droite : éducation + langues/loisirs -->
+        <div class="glass-card" style="padding: 2rem 1.8rem;">
+            <h2 style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem;"><i class="fas fa-graduation-cap" style="color: #3b82f6;"></i> Formation</h2>
+            <div style="margin-bottom: 1.2rem;">
+                <div style="font-weight: 700;">Diplôme d'Ingénieur en Électronique & Informatique</div>
+                <div style="color: #2b4b6f;">ESPA Antsiranana · 2022</div>
+            </div>
+            <div style="margin-bottom: 1.2rem;">
+                <div style="font-weight: 700;">Master II en Informatique</div>
+                <div style="color: #2b4b6f;">ESPA Antsiranana · 2021</div>
+            </div>
+            <div style="margin-bottom: 1.2rem;">
+                <div style="font-weight: 700;">Licence en Génie Électrique</div>
+                <div style="color: #2b4b6f;">ESPA Antsiranana · 2018</div>
+            </div>
+            <div style="margin-bottom: 1.8rem;">
+                <div style="font-weight: 700;">Baccalauréat Série D</div>
+                <div style="color: #2b4b6f;">Institution Saint Joseph · 2014</div>
+            </div>
+            <hr>
+            <h2 style="margin: 1.2rem 0 0.8rem; font-size: 1.5rem;">Langues & centres d’intérêt</h2>
+            <div class="lang-interet">
+                <span><i class="fas fa-flag" style="color: #1e4d7c;"></i> Français (opérationnel)</span>
+                <span><i class="fas fa-flag" style="color: #1e4d7c;"></i> Anglais (notions techniques)</span>
+                <span><i class="fas fa-flag" style="color: #1e4d7c;"></i> Malagasy (native)</span>
+                <span><i class="fas fa-futbol"></i> Football</span>
+                <span><i class="fas fa-film"></i> Cinéma</span>
+                <span><i class="fas fa-camera"></i> Photographie</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- COMPÉTENCES TECHNIQUES (3 colonnes) -->
+    <div class="glass-card" style="padding: 2rem 2rem;">
+        <h2 style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1.8rem;"><i class="fas fa-microchip"></i> Compétences techniques</h2>
+        <div class="grid-3">
+            <!-- software dev -->
+            <div class="skill-block">
+                <div class="skill-icon"><i class="fas fa-code"></i></div>
+                <h3>Développement logiciel & web</h3>
+                <div class="skill-items">
+                    <span class="skill-chip">Java (Spring Boot)</span><span class="skill-chip">PHP (Laravel)</span>
+                    <span class="skill-chip">MySQL</span><span class="skill-chip">Angular</span>
+                    <span class="skill-chip">JS/JavaScript</span><span class="skill-chip">HTML5/CSS3</span>
+                    <span class="skill-chip">Electron</span><span class="skill-chip">Java Desktop</span>
+                    <span class="skill-chip">UML</span><span class="skill-chip">Git</span>
+                </div>
+            </div>
+            <!-- electronique & hardware -->
+            <div class="skill-block">
+                <div class="skill-icon"><i class="fas fa-bolt"></i></div>
+                <h3>Électronique & Hardware</h3>
+                <div class="skill-items">
+                    <span class="skill-chip">Circuits imprimés</span><span class="skill-chip">Prototypage</span>
+                    <span class="skill-chip">Systèmes embarqués</span><span class="skill-chip">Tests & mesures</span>
+                    <span class="skill-chip">Validation prototypes</span><span class="skill-chip">Rebobimage moteurs</span>
+                </div>
+            </div>
+            <!-- outils / methodo -->
+            <div class="skill-block">
+                <div class="skill-icon"><i class="fas fa-wrench"></i></div>
+                <h3>Outils & méthodologies</h3>
+                <div class="skill-items">
+                    <span class="skill-chip">Postman</span><span class="skill-chip">VS Code</span>
+                    <span class="skill-chip">IntelliJ</span><span class="skill-chip">LaTeX</span>
+                    <span class="skill-chip">Microsoft Office</span><span class="skill-chip">Git workflow</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PROJETS PERSO & RÉALISATIONS -->
+    <div class="glass-card" style="padding: 2rem 2rem;">
+        <h2 style="display: flex; align-items: center; gap: 0.6rem;"><i class="fas fa-rocket"></i> Projets personnels & réalisations</h2>
+        <div class="grid-3" style="margin-top: 2rem;">
+            <div class="project-card">
+                <h4>Logiciel de Diagnostic Électronique <span class="year">(2018)</span></h4>
+                <div class="project-desc">Solution en Java/MySQL pour l'analyse technique embarquée et maintenance.</div>
+                <span class="pill-tag"><i class="fab fa-java"></i> Java · MySQL</span>
+            </div>
+            <div class="project-card">
+                <h4>Portail Gestion Web <span class="year">(2021)</span></h4>
+                <div class="project-desc">Application complète sous Laravel/MySQL : gestion de flux et administrables.</div>
+                <span class="pill-tag"><i class="fab fa-laravel"></i> Laravel · MySQL</span>
+            </div>
+            <div class="project-card">
+                <h4>Gestion Cybercafé <span class="year">(2019)</span></h4>
+                <div class="project-desc">Administration réseau, maintenance hardware, support utilisateur.</div>
+                <span class="pill-tag"><i class="fas fa-network-wired"></i> réseau · hardware</span>
+            </div>
+        </div>
+        <!-- petite phrase dynamique -->
+        <div style="margin-top: 2rem; font-style: italic; background: #eaf1fd; border-radius: 3rem; padding: 0.8rem 1.8rem;">
+            <i class="fas fa-crown" style="color: #f59e0b;"></i>  +2 ans d'expérience terrain, de la conception électronique au déploiement d'applications.
+        </div>
+    </div>
+
+    <!-- footer / mention -->
+    <footer>
+        <span>© 2025 VELO Freddy Christiano — portfolio interactif généré depuis le CV. Mis à jour</span>
+    </footer>
+</div>
+
+<!-- petit script pour un effet dynamique (rien de lourd) -->
+<script>
+    (function() {
+        // simple effet de clic sur les cartes compétences (optionnel)
+        const blocks = document.querySelectorAll('.skill-block');
+        blocks.forEach(block => {
+            block.addEventListener('click', () => {
+                block.style.backgroundColor = '#f2f8ff';
+                setTimeout(() => block.style.backgroundColor = 'white', 150);
+            });
+        });
+        console.log('Portfolio VELO Freddy — photo et liens intégrés');
+    })();
+</script>
+</body>
+</html>
