@@ -2,41 +2,118 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Détails | VELO Freddy</title>
+    <title>VELO Freddy Christiano | Portfolio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
 
-<header style="padding:40px 10%;">
-    <h1>Détails de mes projets</h1>
-    <a href="index.html" class="btn-primary">⬅ Retour au Portfolio</a>
-</header>
+    <header>
+        <nav>
+            <h1 class="logo">VELO Freddy</h1>
+            <ul>
+                <li><a href="#about">À propos</a></li>
+                <li><a href="#skills">Compétences</a></li>
+                <li><a href="#projects">Projets</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
 
-<section style="padding:80px 10%;">
-    <h2>Logiciel de Diagnostic Électronique</h2>
-    <p>
-        Application développée en Java avec base de données MySQL.
-        Fonctionnalités : analyse technique, gestion des données,
-        génération de rapports.
-    </p>
+        <div class="hero-container">
 
-    <h2 style="margin-top:50px;">Portail Web Laravel</h2>
-    <p>
-        Développement d’une plateforme complète avec gestion utilisateurs,
-        authentification sécurisée et base de données optimisée.
-    </p>
+            <div class="hero-text">
+                <h2>Ingénieur en Électronique & Informatique Industrielle</h2>
+                <p>Développement logiciel • Systèmes embarqués • Optimisation de produits électroniques</p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn-primary">Voir mes projets</a>
+                    <a href="#contact" class="btn-outline">Me contacter</a>
+                    <a href="CV_Freddy_Velo.pdf" class="btn-cv" download>
+                        <i class="fas fa-download"></i> Télécharger CV
+                    </a>
+                </div>
+                <div class="social-icons">
+                    <a href="https://www.linkedin.com/in/freddy-christiano-velo-64913a20a/" target="_blank">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/ChrisFreddy97" target="_blank">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
+            </div>
+        
+            <div class="hero-image">
+                <img src="PHOTO.png" alt="VELO Freddy Christiano">
+            </div>
+        
+        </div>
+    </header>
 
-    <h2 style="margin-top:50px;">Angular + Spring Boot</h2>
-    <p>
-        Interface dynamique Angular connectée à une API REST sécurisée
-        développée avec Spring Boot.
-    </p>
-</section>
+    <section id="about" class="fade-in">
+        <h2>À propos</h2>
+        <p>
+            Ingénieur diplômé ESPA Antsiranana avec une expertise hybride en hardware et software.
+            Je conçois des solutions robustes en Java, Spring Boot, Laravel, Angular et systèmes embarqués.
+        </p>
+    </section>
 
-<footer style="text-align:center; padding:30px;">
-    © 2026 VELO Freddy Christiano
-</footer>
+    <section id="skills" class="fade-in">
+        <h2>Compétences</h2>
+        <div class="skills-grid">
+            <div class="card">
+                <h3>Développement</h3>
+                <p>Java • Spring Boot • Laravel • Angular • MySQL • Git</p>
+            </div>
 
+            <div class="card">
+                <h3>Électronique</h3>
+                <p>PCB • Prototypage • Systèmes embarqués • Tests & Mesures</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="fade-in">
+        <h2>Projets</h2>
+
+        <div class="projects-grid">
+            <div class="project-card">
+                <h3>Logiciel de Diagnostic</h3>
+                <p>Application Java/MySQL pour analyse technique électronique.</p>
+            </div>
+
+            <div class="project-card">
+                <h3>Portail Web Laravel</h3>
+                <p>Plateforme de gestion complète avec base de données optimisée.</p>
+            </div>
+
+            <div class="project-card">
+                <h3>Angular + API Spring</h3>
+                <p>Frontend dynamique avec backend REST sécurisé.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="fade-in">
+        <h2>Contact</h2>
+        <p>Email : velofreddy.christiano@gmail.com</p>
+        <p>Téléphone : +261 32 97 329 93</p>
+        <p>Ambanja, Madagascar</p>
+    
+        <div class="social-icons">
+            <a href="https://www.linkedin.com/in/freddy-christiano-velo-64913a20a/" target="_blank">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://github.com/ChrisFreddy97" target="_blank">
+                <i class="fab fa-github"></i>
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 VELO Freddy Christiano</p>
+    </footer>
+
+<script src="script.js"></script>
 </body>
 </html>
