@@ -203,3 +203,17 @@ footer {
     color: #0f172a;
     transform: translateY(-3px);
 }
+.btn-view-cv {
+    background: #6366f1;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn-view-cv:hover {
+    background: #4f46e5;
+    transform: translateY(-3px);
+}
